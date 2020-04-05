@@ -1,5 +1,6 @@
 import React from 'react';
 import { Route, Switch} from 'react-router-dom';
+import 'semantic-ui-css/semantic.min.css';
 import './App.css';
 import { Landing} from './home/Landing';
 import { Login } from './login/login';

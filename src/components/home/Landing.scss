@@ -1,0 +1,45 @@
+.container{
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6)), url('../../images//events.jpeg');
+  background-size: cover;
+  height: 100vh;
+  display: flex;
+  color: white;  
+  font-size: 2rem;
+  flex-direction: column;
+
+  .header {
+    background-color:  #3d3a3a ;
+
+    ul {
+      list-style-type: none;
+      display: flex;
+      padding: 0;
+      margin: 0;
+
+      li {
+        cursor: pointer;
+        text-align: center;
+        flex: auto;
+        padding: 10px;
+        &:hover{
+          background: black;
+        }
+      }
+      .blank {
+        flex-grow: 6;
+        &:hover{
+          background: #3d3a3a ;
+          cursor: default;
+        }
+      }
+    }
+  }
+
+  .main {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
