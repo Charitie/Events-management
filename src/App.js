@@ -4,6 +4,7 @@ import 'semantic-ui-css/semantic.min.css';
 import './App.scss';
 import { Landing} from './components/home/Landing';
 import Login from './components/login/login.container';
+import Signup from './components/signup/signup.container';
 import { NotFound } from './components/home/notFound';
 
 function App() {
@@ -12,6 +13,7 @@ function App() {
       <Switch>
         <Route exact path="/"  component={Landing}/>
         <Route exact path="/login" component={Login}/>
+        <Route exact path="/signup" component={Signup}/>
           <Route exact path="/home">
             <div> you are home</div>
           </Route>

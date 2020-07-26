@@ -1,29 +1,46 @@
 import React, { useState } from "react";
 import Proptypes from "prop-types";
 import { Form } from "semantic-ui-react";
-import "./login.scss";
+import "./signup.scss";
 import { Redirect, Link } from "react-router-dom";
 
-export function Login(props) {
-  const { login, loading, error, isAuthenticated } = props;
+export function Signup(props) {
+  const { signup, loading, error, isAuthenticated } = props;
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
   const [password, setPassword] = useState("");
 
   const onSubmit = (event) => {
     event.preventDefault();
-    login({ email, password });
+    signup({name, email, password, phoneNumber: phone });
   };
   if (isAuthenticated) {
     return <Redirect to="/home" />;
   }
   return (
-    <section className="section-login">
-      <div className="login">
-        <div className="login__form-container">
-          <Form onSubmit={onSubmit} loading={loading} className="login__form">
+    <section className="section-signup">
+      <div className="signup">
+        <div className="signup__form-container">
+          <Form onSubmit={onSubmit} loading={loading} className="signup__form">
             <div className="u-margin-bottom-medium">
-              <h2> login</h2>
+              <h2> signup</h2>
               {error && <div className="form-error"> {error.message}</div>}
+            </div>
+            <div className="form__group">
+              <input
+                type="text"
+                name="fullName"
+                id="name"
+                className="form__input"
+                placeholder="full name"
+                value={name}
+                onChange={(event) => setName(event.target.value)}
+                required
+              />
+              <label htmlFor="email" className="form__label">
+                Full Name
+              </label>
             </div>
             <div className="form__group">
               <input
@@ -42,6 +59,21 @@ export function Login(props) {
             </div>
             <div className="form__group">
               <input
+                type="number"
+                name="phone"
+                id="phone"
+                className="form__input"
+                placeholder="Phone number"
+                value={phone}
+                onChange={(event) => setPhone(event.target.value)}
+                required
+              />
+              <label htmlFor="email" className="form__label">
+                Phone Number
+              </label>
+            </div>
+            <div className="form__group">
+              <input
                 type="password"
                 name="password"
                 id="password"
@@ -56,9 +88,9 @@ export function Login(props) {
               </label>
             </div>
             <div className="form__buttons">
-              <button>Login</button>
+              <button>signup</button>
               <div>
-                Don't have an account? <Link to="/signup">Create here</Link>
+                Already have an account? <Link to="/login">Login here</Link>
               </div>
             </div>
           </Form>
@@ -68,8 +100,8 @@ export function Login(props) {
   );
 }
 
-Login.prototypes = {
-  login: Proptypes.func,
+Signup.prototypes = {
+  signup: Proptypes.func,
   loading: Proptypes.bool,
   error: Proptypes.object,
 };

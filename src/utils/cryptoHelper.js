@@ -14,7 +14,7 @@ export const decrypt = () => {
 };
 
 export const storeDataInLocalStorage = data => {
-  const key = 'process.env.REACT_APP_ENCRYPTION_KEY';
+  const key = process.env.REACT_APP_ENCRYPTION_KEY;
   const encryptedData = CryptoJS.AES.encrypt(JSON.stringify(data), key).toString();
 
   localStorage.setItem(LOCALSTORAGE_KEY, encryptedData);

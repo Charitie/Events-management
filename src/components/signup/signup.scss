@@ -1,6 +1,6 @@
 @import "../../sass//variables";
 
-.section-login {
+.section-signup {
   background-color: $color-grey-light-2;
   height: 100vh;
   display: flex;
@@ -8,7 +8,7 @@
   justify-content: center;
 }
 
-.login {
+.signup {
   min-height: 60%;
   width: 65%;
   background-image: linear-gradient(
