@@ -1,45 +1,93 @@
-.container{
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6)), url('../../images//events.jpg');
+.btn {
+  &:link,
+  &:visited {
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 1.5rem 4rem;
+    display: inline-block;
+    border-radius: 3rem;
+    transition: all 0.2s;
+  }
+
+  &:hover {
+    transform: translateY(-0.3rem);
+    box-shadow: 0 1rem 2rem grey;
+  }
+
+  &:active {
+    transform: translateY(-0.1rem);
+    box-shadow: 0 0.5rem 1rem grey;
+    color: var(--color-grey);
+  }
+
+  &-white {
+    background-color: var(--color-white);
+    color: var(--color-grey);
+  }
+}
+
+.container {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6)),
+    url("../../images//events.jpg");
   background-size: cover;
   height: 100vh;
   display: flex;
-  color: white;  
-  font-size: 2rem;
+  color: white;
+  font-size: 1.6rem;
   flex-direction: column;
 
   .header {
-    background-color:  #3d3a3a ;
+    background-color: #575550;
+    display: flex;
+    justify-content: space-between;
 
-    ul {
-      list-style-type: none;
-      display: flex;
-      padding: 0;
-      margin: 0;
+    &__nav {
+      ul {
+        list-style-type: none;
+        display: flex;
+        padding: 0 1.5rem;
+        margin: 0;
+        justify-content: space-between;
+        align-items: center;
 
-      li {
-        cursor: pointer;
-        text-align: center;
-        flex: auto;
-        padding: 10px;
-        &:hover{
-          background: black;
+        li {
+          padding: 1.5rem 1rem;
+          cursor: pointer;
+          text-align: center;
+          display: flex;
+          align-items: center;
+
+          &:not(:last-child) {
+            border-right: 2px solid black;
+          }
+          &:hover {
+            background: #3d3a3a;
+          }
         }
       }
-      .blank {
-        flex-grow: 6;
-        &:hover{
-          background: #3d3a3a ;
-          cursor: default;
-        }
-      }
+    }
+
+    &__logo {
+      align-self: flex-start;
+      height: 5rem;
+      width: 10rem;
+      padding-left: 1rem;
+    }
+
+    &__about {
+      align-self: flex-end;
     }
   }
 
   .main {
     flex-grow: 1;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    &__cta-text {
+      margin-bottom: 1.5rem;
+    }
   }
 }
-
