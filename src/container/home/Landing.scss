@@ -2,93 +2,16 @@
 // c2a857
 // b49b4e
 
-.btn {
-	&:link,
-	&:visited {
-		text-transform: uppercase;
-		text-decoration: none;
-		padding: 1.5rem 4rem;
-		display: inline-block;
-		border-radius: 3rem;
-		transition: all 0.2s;
-    font-weight: bold;
-    transition: all .5s;
-	}
 
-	&:hover {
-		transform: translateY(-0.3rem);
-		// box-shadow: 1px 0 12px #d4af37;
-		// background-color: grey;
-		color: #fff;
-	}
 
-	&:active {
-		transform: translateY(-0.1rem);
-		box-shadow: 0 0 1px #d4af37;
-		color: var(--color-grey);
-	}
-
-	&-white {
-		background-color: #c2a857;
-		color: #333;
-	}
-}
-
-.container {
+.main {
 	background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6)),
 		url("../../images/events.jpg");
 	background-size: cover;
-	height: 100vh;
-	display: flex;
+	height: 92.3vh;
 	color: #c2a857;
-	font-size: 1.6rem;
 	flex-direction: column;
 
-	.header {
-		background-color: #575550;
-		display: flex;
-		justify-content: space-between;
-
-		&__nav {
-			ul {
-				list-style-type: none;
-				display: flex;
-				padding: 0 1.5rem;
-				margin: 0;
-				justify-content: space-between;
-				align-items: center;
-
-				li {
-					padding: 1.5rem 1rem;
-					cursor: pointer;
-					text-align: center;
-					display: flex;
-					align-items: center;
-					font-size: 1.6rem;
-
-					&:not(:last-child) {
-						border-right: 2px solid black;
-					}
-					&:hover {
-						background: #3d3a3a;
-					}
-				}
-			}
-		}
-
-		&__logo {
-			align-self: flex-start;
-			height: 5rem;
-			width: 10rem;
-			padding-left: 1rem;
-		}
-
-		&__about {
-			align-self: flex-end;
-		}
-	}
-
-	.main {
 		flex-grow: 1;
 		display: flex;
 		flex-direction: column;
@@ -96,7 +19,41 @@
 		align-items: center;
 
 		&__cta-text {
-			margin-bottom: 1.5rem;
+			margin-bottom: 6rem;
+			font-size: 4rem;
+			font-weight: 800;
 		}
-	}
+
+		.btn {
+			&:link,
+			&:visited {
+				text-transform: uppercase;
+				text-decoration: none;
+				padding: 1.5rem 4rem;
+				display: inline-block;
+				border-radius: 3rem;
+				transition: all 0.2s;
+				font-weight: bold;
+				transition: all 0.5s;
+				font-size: 2rem;
+			}
+		
+			&:hover {
+				transform: translateY(-0.3rem);
+				// box-shadow: 1px 0 12px #d4af37;
+				// background-color: grey;
+				color: #fff;
+			}
+		
+			&:active {
+				transform: translateY(-0.1rem);
+				box-shadow: 0 0 1px #d4af37;
+				color: var(--color-grey);
+			}
+		
+			&-white {
+				background-color: #c2a857;
+				color: #333;
+			}
+		}
 }

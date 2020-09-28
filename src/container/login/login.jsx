@@ -13,7 +13,7 @@ export function Login(props) {
 		login({ email, password });
 	};
 	if (isAuthenticated) {
-		return <Redirect to='/home' />;
+		return <Redirect to='/events' />;
 	}
 	return (
 		<section className='section-login'>
@@ -21,7 +21,7 @@ export function Login(props) {
 				<div className='login__form-container'>
 					<Form onSubmit={onSubmit} loading={loading} className='login__form'>
 						<div className='u-margin-bottom-medium'>
-							<h2 className='header'> Log in to Fancy Events</h2>
+							<h2 className='login__header'> Log in to Fancy Events</h2>
 							{error && <div className='form-error'> {error.message}</div>}
 						</div>
 						<div className='form__group'>
