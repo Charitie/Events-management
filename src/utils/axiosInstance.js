@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const baseURL = 'http://localhost:5001';
+const baseURL = 'https://fancy-events-api.herokuapp.com';
 
 export const axiosInstance = axios.create({
   baseURL,

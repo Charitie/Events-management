@@ -2,7 +2,7 @@ import React from "react";
 import { IoMdLogIn } from 'react-icons/io';
 import "./Landing.scss";
 import { Link } from "react-router-dom";
-import logo from "../../images/logo.png";
+import logo from "../../images/logo3.Nt8vk";
 
 export function Landing() {
   return (

@@ -3,7 +3,6 @@ import Proptypes from "prop-types";
 import { Form } from "semantic-ui-react";
 import "./signup.scss";
 import { Redirect, Link } from "react-router-dom";
-
 export function Signup(props) {
   const { signup, loading, error, isAuthenticated } = props;
   const [name, setName] = useState("");
@@ -24,7 +23,7 @@ export function Signup(props) {
         <div className="signup__form-container">
           <Form onSubmit={onSubmit} loading={loading} className="signup__form">
             <div className="u-margin-bottom-medium">
-              <h2> signup</h2>
+              <h2 className='header'> Sign up for Fancy Events</h2>
               {error && <div className="form-error"> {error.message}</div>}
             </div>
             <div className="form__group">
@@ -88,9 +87,9 @@ export function Signup(props) {
               </label>
             </div>
             <div className="form__buttons">
-              <button>signup</button>
-              <div>
-                Already have an account? <Link to="/login">Login here</Link>
+              <button className='btn btn-white'>signup</button>
+              <div className='redirect'>
+                Already have an account? <Link to="/login" className='redirect-link'>Login here</Link>
               </div>
             </div>
           </Form>

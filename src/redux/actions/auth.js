@@ -28,8 +28,11 @@ export const loginAsync = (user) => {
     dispatch(userLoginRequest());
     try {
       const response = await axiosInstance.post("/login", user);
+      
+      console.log('res',response)
       dispatch(userLoginSuccess(response.data));
     } catch (error) {
+      console.log('error', error)
       dispatch(userLoginFailed(error.response.data));
     }
   };

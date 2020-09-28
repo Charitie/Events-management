@@ -1,0 +1,36 @@
+@mixin account-button{
+  .btn {
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 1rem 5rem;
+    display: inline-block;
+    border-radius: 2rem;
+    transition: all 0.2s;
+    font-weight: bold;
+    transition: all 0.5s;
+    margin-bottom: 1rem;
+    border: none;
+    font-size: 1.2rem;
+
+    &:focus {
+      outline: none;
+    }
+    &:hover {
+      transform: translateY(-0.3rem);
+      box-shadow: 1px 0 12px #d4af37;
+      background-color: grey;
+      color: #d4af37;
+    }
+
+    &:active {
+      transform: translateY(-0.1rem);
+      // box-shadow: 0 0 1px #d4af37;
+      color: var(--color-grey);
+    }
+
+    &-white {
+      background-color: #fff;
+      color: #333;
+    }
+  }
+}
