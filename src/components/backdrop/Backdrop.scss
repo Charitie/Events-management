@@ -1,0 +1,11 @@
+@import "../../App.scss";
+
+.backdrop {
+  background: $rgba-black;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  position: fixed;
+}

@@ -1,0 +1,94 @@
+@import "../../App.scss";
+
+.form {
+  color: #333;
+  font-size: 1.2rem;
+  
+
+	.form-group {
+		text-transform: capitalize;
+		display: flex;
+		flex-direction: column;
+		width: 30vw;
+		margin-bottom: 1.5rem;
+
+		&__label {
+			font-size: 1.2rem;
+			font-weight: 700;
+			margin-right: 4rem;
+			margin-bottom: 0.5rem;
+		}
+
+		&__input {
+			font-family: inherit;
+			padding: 0.5rem 1.5rem;
+			border-radius: 4px;
+			color: inherit;
+			background-color: #ffffff;
+			border: 1px solid #c2a75765;
+			border-bottom: 3px solid transparent;
+			width: 100%;
+
+			&:focus {
+				@include focus;
+			}
+
+			&:focus:invalid {
+				border-bottom: 3px solid orangered;
+			}
+		}
+
+		&__textarea {
+			// border: none;
+			padding: 1.5rem;
+			border: 1px solid #c2a75765;
+			border-radius: 4px;
+
+			&:focus {
+				@include focus;
+			}
+		}
+
+		&__date-picker {
+      padding: 0.5rem 1.5rem;
+      border-radius: 4px;
+			width: 100%;
+			border: 1px solid #c2a75765;
+
+			&:focus {
+				@include focus;
+			}
+		}
+	}
+
+	.btn {
+		border: none;
+		padding: 1rem 1.5rem;
+		border-radius: 1rem;
+		font-weight: 700;
+		transition: all 0.5s;
+		font-size: 1.2rem;
+		color: inherit;
+
+		&:focus {
+			outline: none;
+			box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+			border-bottom: 3px solid $color-primary;
+		}
+
+		&:hover {
+			transform: translateY(-0.3rem);
+			color: $color-primary;
+			background-color: #3d3a3a;
+		}
+
+		&--gold {
+			background-color: $color-primary;
+		}
+
+		&--white {
+			background-color: #fff;
+			width: 11rem;
+		}
+	}
+}

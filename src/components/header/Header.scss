@@ -18,12 +18,12 @@
 			}
 
 			li {
-				padding: 2rem 1rem;
+				// padding: 1.5rem 1rem;
 				cursor: pointer;
 				text-align: center;
 				display: flex;
 				align-items: center;
-				font-size: 1.6rem;
+				font-size: 1.2rem;
 
 				&:not(:last-child) {
 					border-right: 1px solid rgba(0, 0, 0, 0.2);
@@ -31,6 +31,7 @@
 
 				&:hover {
 					background: #3d3a3a;
+					
 				}
 			}
 		}
@@ -38,18 +39,34 @@
 
 	&__link {
 		color: #c2a857;
+		padding: 1.5rem 1rem;
 
-		&:active,
-		&:visited {
-			text-decoration: none;
+		// &:active,
+		// &:visited {
+		// 	text-decoration: none;
+		// 	color: #c2a857;
+		// 	background-color: #3d3a3a;
+		// }
+
+		&:hover {
 			color: #c2a857;
+		}
+
+		&--active {
+			background-color: #3d3a3a;
+			color: #c2a857;
+			padding: 1.5rem 1rem;
+
+			&:hover {
+				color: #c2a857;
+			}
 		}
 	}
 
 	&__logo {
 		align-self: flex-start;
-		height: 6rem;
-		width: 13rem;
+		height: 4rem;
+		width: 9rem;
 		// padding: 0 .3rem;
 		margin: 0 1rem;
 	}
