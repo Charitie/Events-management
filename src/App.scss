@@ -1,6 +1,7 @@
 @import "./sass/mixins";
 @import "./sass/utilities";
 @import "./sass/variables";
+@import './sass//grid';
 
 $font-primary: "Nunito", sans-serif;
 $font-display: "Josefin Sans", sans-serif;
@@ -15,10 +16,26 @@ $font-display: "Josefin Sans", sans-serif;
 
 html {
 	box-sizing: border-box;
-	font-size: 62.5%; 
+	// font-size: 62.5%;
+	// font-size: 100%;
 }
 
 body {
 	font-family: $font-primary;
-  background-color: #eee;
+	background-color: #eee;
+}
+
+.app-container {
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+
+	&__header {
+		flex: 0 0 7%;
+		// background-color: red;;
+	}
+
+	.pages {
+		flex: 1;
+	}
 }

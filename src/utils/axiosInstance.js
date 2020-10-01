@@ -1,5 +1,6 @@
 import axios from 'axios';
 
+//const baseURL = 'http://localhost:5000';
 const baseURL = 'https://fancy-events-api.herokuapp.com';
 
 export const axiosInstance = axios.create({
@@ -7,3 +8,10 @@ export const axiosInstance = axios.create({
   headers: { 'Content-Type': 'application/json', crossDomain: true },
 });
 
+axiosInstance.interceptors.request.use((config)=>{
+  const accessToken = localStorage.getItem('fancyeventsJWT');
+  if(accessToken){
+      config.headers.Authorization = `Bearer ${accessToken}`;
+  }
+  return config;
+})
