@@ -1,0 +1,35 @@
+@import "../../../App.scss";
+
+.form-modal {
+	background-color: $color-primary;
+	height: 90%;
+	width: 50%;
+	position: fixed;
+	top: 2rem;
+	right: 25vw;
+	z-index: 20;
+	margin: 2rem auto;
+	box-shadow: 0 0 2rem rgba(0, 0, 0, 0.3);
+	padding-left: 3rem;
+	border-radius: 10px;
+
+	&__header {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding-right: 2rem;
+	}
+
+	&__title {
+		padding-top: 2rem;
+	}
+
+	&__cancel-btn {
+		fill: #3d3a3a;
+		transition: all 0.5s;
+
+		&:hover {
+			fill: #c90000;
+		}
+	}
+}
