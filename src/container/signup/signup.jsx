@@ -23,7 +23,7 @@ export function Signup(props) {
         <div className="signup__form-container">
           <Form onSubmit={onSubmit} loading={loading} className="signup__form">
             <div className="u-margin-bottom-medium">
-              <h2 className='header'> Sign up for Fancy Events</h2>
+              <h2 className='heading'> Sign up for Fancy Events</h2>
               {error && <div className="form-error"> {error.message}</div>}
             </div>
             <div className="form__group">

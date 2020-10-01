@@ -8,9 +8,10 @@
 	background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6)),
 		url("../../images/events.jpg");
 	background-size: cover;
-	height: 92.3vh;
+	height: 100%;
 	color: #c2a857;
 	flex-direction: column;
+	background-position: left 0% bottom 20%;
 
 		flex-grow: 1;
 		display: flex;
@@ -20,7 +21,7 @@
 
 		&__cta-text {
 			margin-bottom: 6rem;
-			font-size: 4rem;
+			font-size: 3.5rem;
 			font-weight: 800;
 		}
 
@@ -35,7 +36,7 @@
 				transition: all 0.2s;
 				font-weight: bold;
 				transition: all 0.5s;
-				font-size: 2rem;
+				font-size: 1.6rem;
 			}
 		
 			&:hover {

@@ -12,3 +12,14 @@ export const NotFound = () => (
 );
 
 
+export const NotAuthorized = () => (
+	<div>
+		<h2>
+			Please Login or Signup to access this page
+			{/* <span role='img' aria-label='smile'>
+				&#128540;
+			</span> */}
+		</h2>
+	</div>
+);
+

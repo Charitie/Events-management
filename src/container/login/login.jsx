@@ -12,9 +12,11 @@ export function Login(props) {
 		event.preventDefault();
 		login({ email, password });
 	};
+
 	if (isAuthenticated) {
 		return <Redirect to='/events' />;
-	}
+	};
+	
 	return (
 		<section className='section-login'>
 			<div className='login'>
