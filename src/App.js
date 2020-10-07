@@ -20,7 +20,7 @@ function App() {
 		if (localStorage.token) {
 			dispatch(setAuth());
 		}
-	}, []);
+	}, [dispatch]);
 
 	return (
 		<div className='app-container'>

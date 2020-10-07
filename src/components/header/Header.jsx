@@ -1,7 +1,7 @@
 import React from "react";
-import { connect, useDispatch, useSelector } from "react-redux";
+import {  useDispatch, useSelector } from "react-redux";
 import PropTypes from "prop-types";
-import { Link, NavLink, useHistory, useRouteMatch } from "react-router-dom";
+import {  NavLink, useHistory } from "react-router-dom";
 
 import { IoMdLogOut } from "react-icons/io";
 import { IoMdLogIn } from "react-icons/io";

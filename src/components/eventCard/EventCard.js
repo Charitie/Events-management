@@ -1,4 +1,5 @@
 import React from "react";
+import loader  from "../../images/loader.gif";
 
 const EventCard = ({
 	events,
@@ -6,11 +7,15 @@ const EventCard = ({
 	toggleDeleteModal,
 	showButtons,
 	showRsvpButton,
-	deleteEvent,
+	loading,
 }) => {
+	console.log('loading',loading);
 	return (
 		<div className='events'>
-			{events.length > 0 &&
+			{loading ? (
+				<img  src={loader} alt='loader'  />
+			) : (
+				events.length > 0 &&
 				events.map((event) => {
 					return (
 						<div key={event.id} className='event'>
@@ -53,7 +58,7 @@ const EventCard = ({
 										Edit
 									</span>
 									<span
-										onClick={toggleDeleteModal}
+										onClick={() => toggleDeleteModal(event.id)}
 										className='content__control-button content__control-button--delete'>
 										Delete
 									</span>
@@ -65,7 +70,8 @@ const EventCard = ({
 							</div>
 						</div>
 					);
-				})}
+				})
+			)}
 		</div>
 	);
 };

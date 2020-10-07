@@ -35,3 +35,8 @@ export const EVENT_DELETED = 'EVENT_DELETED';
 //set Authentication
 export const SET_AUTH_SUCCESS = 'SET_AUTH_SUCCESS';
 export const SET_AUTH_FAILED = 'SET_AUTH_FAILED';
+
+export const OPEN_EDIT_MODAL = 'OPEN_EDIT_MODAL';
+export const OPEN_DELETE_MODAL = 'OPEN_DELETE_MODAL';
+
+export const CLOSE_MODAL = 'CLOSE_MODAL';

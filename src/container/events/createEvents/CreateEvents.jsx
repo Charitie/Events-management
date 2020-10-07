@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 
-import { useDispatch, useSelector } from "react-redux";
-import moment from "moment";
+import { useDispatch } from "react-redux";
 
 import "react-datepicker/dist/react-datepicker.css";
 import "./CreateEvents.scss";

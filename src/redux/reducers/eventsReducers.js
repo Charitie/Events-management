@@ -11,15 +11,15 @@ import {
 } from "../actions/types";
 
 const initialState = {
-	event: {},
+	event: [],
 	events: {},
 	myEvents: {},
 	error: null,
-	loading: false,
+	loading: true,
 };
 
 export function eventsReducer(state = initialState, action) {
-	const { type, payload, eventId } = action;
+	const { type, payload } = action;
 	switch (type) {
 		case EVENT_CREATED_SUCCESS:
 			return {
@@ -45,7 +45,7 @@ export function eventsReducer(state = initialState, action) {
 		case EDIT_EVENT_SUCCESS:
 			return {
 				...state,
-				events: state.events.map((event) =>
+				myEvents: state.myEvents.map((event) =>
 					event.id === payload.id ? { ...event, ...payload.event } : event
 				),
 				loading: false,

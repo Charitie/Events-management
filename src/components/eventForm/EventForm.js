@@ -1,5 +1,5 @@
 import React from "react";
-import PropTypes from "prop-types";
+// import PropTypes from "prop-types";
 import DatePicker, { CalendarContainer } from "react-datepicker";
 import "./EventForm.scss";
 
@@ -14,7 +14,7 @@ const EventForm = ({
 	buttonText,
 	buttonClassName,
 }) => {
-	console.log('forma data', category)
+	// console.log('forma data', category)
 	const MyContainer = ({ className, children }) => {
 		return (
 			<CalendarContainer className={className}>
@@ -126,6 +126,6 @@ const EventForm = ({
 	);
 };
 
-EventForm.propTypes = {};
+// EventForm.propTypes = {};
 
 export default EventForm;

@@ -11,10 +11,9 @@ const AllEvents = () => {
 	const { events } = event;
 	const dispatch = useDispatch();
 
-	console.log(events);
 	useEffect(() => {
 		dispatch(fetchEvents());
-	}, []);
+	}, [dispatch]);
 
 	return (
 		<div className='events-container'>

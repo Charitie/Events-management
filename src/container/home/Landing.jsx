@@ -2,7 +2,6 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
-import Header from "../../components/header/Header";
 import "./Landing.scss";
 
 export function Landing() {
