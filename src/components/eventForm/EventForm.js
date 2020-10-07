@@ -14,6 +14,7 @@ const EventForm = ({
 	buttonText,
 	buttonClassName,
 }) => {
+	console.log('forma data', category)
 	const MyContainer = ({ className, children }) => {
 		return (
 			<CalendarContainer className={className}>

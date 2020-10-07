@@ -32,7 +32,7 @@ export function Login(props) {
 								name='email'
 								id='email'
 								className='form__input'
-								placeholder='email'
+								placeholder='Email'
 								value={email}
 								onChange={(event) => setEmail(event.target.value)}
 								required
@@ -47,7 +47,7 @@ export function Login(props) {
 								name='password'
 								id='password'
 								className='form__input'
-								placeholder='password'
+								placeholder='Password'
 								value={password}
 								onChange={(event) => setPassword(event.target.value)}
 								required

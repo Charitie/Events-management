@@ -58,7 +58,7 @@ export function Signup(props) {
             </div>
             <div className="form__group">
               <input
-                type="number"
+                type="text"
                 name="phone"
                 id="phone"
                 className="form__input"

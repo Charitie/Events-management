@@ -33,7 +33,7 @@ const CreateEvents = (props) => {
 		setDate(date)
 	}
 
-	const handleTimeChange = (date) => {
+	const handleTimeChange = (time) => {
 		setTime(time)
 	}
 

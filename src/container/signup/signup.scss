@@ -2,14 +2,15 @@
 
 .section-signup {
 	background-color: #333;
-	height: 94vh;
+	height: 100vh;
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	padding-top: 5rem;
 }
 // Gold (metallic) / #d4af37
 .signup {
-	min-height: 60%;
+	min-height: 50%;
 	width: 65%;
 	background-image: linear-gradient(
 			90deg,
@@ -36,7 +37,8 @@
 			color: red;
 		}
 		&__heading {
-			color: var(--color-grey-dark-2);
+			color: #333;
+			font-size: 4rem;
 		}
 
 		&__group:not(:last-child) {
@@ -70,25 +72,38 @@
 		}
 
 		&__label {
+			text-transform: capitalize;
+			font-weight: 600;
 			font-size: 1.5rem;
 			padding-left: 0.8rem;
 			margin-top: 0.7rem;
 			display: block;
-			color: $color-grey-dark-2;
+			color: #333;
 			transition: all 0.3s;
 			text-align: left;
+			transform: translateY(-5.5rem);
+			font-size: 1.25rem;
 		}
 
-		&__input:placeholder-shown + .form__label {
-			opacity: 0;
-			visibility: hidden;
-			transform: translateY(-3rem);
-		}
+		// &__input:placeholder-shown + .form__label {
+		// 	opacity: 0;
+		// 	visibility: hidden;
+		// 	transform: translateY(-3rem);
+		// }
 
 		&__buttons {
 			@include account-button;
 		}
 	}
+}
+
+.form__input:placeholder-shown + .form__label {
+	@include placeholder-show;
+}
+
+.form__input:not(:placeholder-shown) + .form__label,
+.form__input:focus:not(:placeholder-shown) + .form__label {
+	@include placeholder-not-show;
 }
 
 // min-height: 60%;

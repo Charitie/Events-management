@@ -45,36 +45,52 @@
 				border-radius: 3px;
 				margin-right: 1rem;
 				padding: 0.5rem 1rem;
-        width: 7vw;
-        transition: all .5s;
-        text-transform: uppercase;
+				width: 7vw;
+				transition: all .5s;
+				text-transform: uppercase;
 
 				&--guest {
 					background-color: #a18a46;
 					color: #fff;
 
 					&:hover {
-            background-color: #575550;
+						background-color: #575550;
 					}
 				}
 
 				&--edit {
 					background-color: #d4af37;
-          
-          &:hover {
-            background-color: #333;
-            color: #d4af37
-          }
+
+					&:hover {
+						background-color: #333;
+						color: #d4af37;
+					}
 				}
 
 				&--delete {
 					background-color: #d4af3773;
-          color: #c90000;
-          
-          &:hover {
-            background-color: #c90000;
-            color: #333
-          }
+					color: #c90000;
+
+					&:hover {
+						background-color: #c90000;
+						color: #333;
+					}
+				}
+				&--rsvp{
+					margin-top: 1.5rem;
+					padding: .8rem 2rem;
+					width: 10vw;
+					background-color: $color-primary;
+					border: none;
+
+					&:focus {
+						outline: none;
+					}
+
+					&:hover {
+						background-color: #575550;
+						color: $color-primary;
+					}
 				}
 			}
 			ul {
@@ -83,6 +99,14 @@
 				li {
 					padding-top: 1rem;
 				}
+			}
+
+			&__hide-control-buttons {
+				display: none;
+			}
+
+			&__hide-rsvp-btn {
+				display: none;
 			}
 		}
 	}

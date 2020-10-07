@@ -6,8 +6,26 @@ import {
 	SIGNUP_SUCCESS,
 	SIGNUP_FAILED,
 	LOGOUT,
+	SET_AUTH_SUCCESS,
+	SET_AUTH_FAILED,
 } from "./types";
 import { axiosInstance } from "../../utils/axiosInstance";
+
+export const setAuthSuccess = () => {
+	return { type: SET_AUTH_SUCCESS };
+};
+
+export const setAuthFailed = () => {
+	return { type: SET_AUTH_FAILED };
+};
+
+export const setAuth = () => async (dispatch) => {
+	try {
+		dispatch(setAuthSuccess())
+	} catch (error) {
+		dispatch(setAuthFailed())
+	}
+}
 
 export const userLoginRequest = () => {
 	return { type: LOGIN_REQUEST };

@@ -40,3 +40,16 @@
 	box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
 	border-bottom: 3px solid $color-primary;
 }
+
+@mixin placeholder-show {
+	opacity: 0;
+	visibility: hidden;
+	transform: translateY(0);
+	z-index: -1;
+}
+
+@mixin placeholder-not-show {
+	visibility: visible;
+	z-index: 1;
+	opacity: 1;
+}

@@ -1,14 +1,23 @@
-import React from "react";
-import Header from "../../components/header/Header";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import EventCard from "../../components/eventCard/EventCard";
 import { ReactComponent as SearchIcon } from "../../images/magnifying-glass.svg";
-// import { loader } from "../../images/loader.gif";
+import {  fetchEvents } from "../../redux/actions/eventsActions";
 
 import "./Events.scss";
 
-const Events = () => {
+const AllEvents = () => {
+	const event = useSelector((state) => state.events);
+	const { events } = event;
+	const dispatch = useDispatch();
+
+	console.log(events);
+	useEffect(() => {
+		dispatch(fetchEvents());
+	}, []);
+
 	return (
 		<div className='events-container'>
-			{/* <Header /> */}
 			<div className='main-content'>
 				<div className='search'>
 					<input
@@ -20,83 +29,14 @@ const Events = () => {
 						<SearchIcon className='search__icon' />
 					</button>
 				</div>
-				<div className='events'>
-					<div className='event'>
-						<div className='title'>header</div>
-						<div className='content'>
-							<ul>
-								<li>HOST : COSY</li>
-								<li>Date : Sat,03 Oct 2020</li>
-								<li> Location : Ruiru</li>
-								<li> Location : Ruiru</li>
-								<li>Category : social heri salamu</li>
-							</ul>
-						</div>
-					</div>
-					<div className='event'>
-						<div className='title'>header</div>
-						<div className='content'>
-							<ul>
-								<li>HOST : COSY</li>
-								<li>Date : Sat,03 Oct 2020</li>
-								<li> Location : Ruiru</li>
-								<li> Location : Ruiru</li>
-								<li>Category : social heri salamu</li>
-							</ul>
-						</div>
-					</div>
-					<div className='event'>
-						<div className='title'>header</div>
-						<div className='content'>
-							<ul>
-								<li>HOST : COSY</li>
-								<li>Date : Sat,03 Oct 2020</li>
-								<li> Location : Ruiru</li>
-								<li> Location : Ruiru</li>
-								<li>Category : social heri salamu</li>
-							</ul>
-						</div>
-					</div>
-					<div className='event'>
-						<div className='title'>header</div>
-						<div className='content'>
-							<ul>
-								<li>HOST : COSY</li>
-								<li>Date : Sat,03 Oct 2020</li>
-								<li> Location : Ruiru</li>
-								<li> Location : Ruiru</li>
-								<li>Category : social heri salamu</li>
-							</ul>
-						</div>
-					</div>
-					<div className='event'>
-						<div className='title'>header</div>
-						<div className='content'>
-							<ul>
-								<li>HOST : COSY</li>
-								<li>Date : Sat,03 Oct 2020</li>
-								<li> Location : Ruiru</li>
-								<li> Location : Ruiru</li>
-								<li>Category : social heri salamu</li>
-							</ul>
-						</div>
-					</div>
-					<div className='event'>
-						<div className='title'>header</div>
-						<div className='content'>
-							<ul>
-								<li>HOST : COSY</li>
-								<li>Date : Sat,03 Oct 2020</li>
-								<li> Location : Ruiru</li>
-								<li> Location : Ruiru</li>
-								<li>Category : social heri salamu</li>
-							</ul>
-						</div>
-					</div>
-				</div>
+
+				<EventCard
+					showButtons='content__hide-control-buttons'
+					events={events}
+				/>
 			</div>
 		</div>
 	);
 };
 
-export default Events;
+export default AllEvents;

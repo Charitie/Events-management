@@ -1,7 +1,11 @@
 import {
+	EDIT_EVENT_FAILED,
 	EDIT_EVENT_SUCCESS,
+	EVENTS_FETCHED,
+	EVENTS_FETCHED_FAILED,
 	EVENT_CREATED_FAILED,
 	EVENT_CREATED_SUCCESS,
+	EVENT_DELETED,
 	MY_EVENTS_FETCHED,
 	MY_EVENTS_FETCHED_FAILED,
 } from "../actions/types";
@@ -9,12 +13,13 @@ import {
 const initialState = {
 	event: {},
 	events: {},
+	myEvents: {},
 	error: null,
 	loading: false,
 };
 
 export function eventsReducer(state = initialState, action) {
-	const { type, payload } = action;
+	const { type, payload, eventId } = action;
 	switch (type) {
 		case EVENT_CREATED_SUCCESS:
 			return {
@@ -23,23 +28,38 @@ export function eventsReducer(state = initialState, action) {
 				event: payload,
 				error: null,
 			};
-		case MY_EVENTS_FETCHED:
+		case EVENTS_FETCHED:
 			return {
 				...state,
 				loading: false,
 				events: payload,
 				error: null,
 			};
+		case MY_EVENTS_FETCHED:
+			return {
+				...state,
+				loading: false,
+				myEvents: payload,
+				error: null,
+			};
 		case EDIT_EVENT_SUCCESS:
 			return {
 				...state,
 				events: state.events.map((event) =>
-					event.id === payload.id ? { ...event, event: payload.event } : event
+					event.id === payload.id ? { ...event, ...payload.event } : event
 				),
-				loading: false
+				loading: false,
+			};
+		case EVENT_DELETED:
+			return {
+				...state,
+				myEvents: state.myEvents.filter((event) => event.id !== payload),
+				loading: false,
 			};
 		case EVENT_CREATED_FAILED:
+		case EVENTS_FETCHED_FAILED:
 		case MY_EVENTS_FETCHED_FAILED:
+		case EDIT_EVENT_FAILED:
 			return { ...state, loading: false, error: payload };
 		default:
 			return state;

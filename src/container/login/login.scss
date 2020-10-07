@@ -33,6 +33,8 @@
 	}
 
 	.form {
+		text-transform: capitalize;
+
 		&-error {
 			color: red;
 		}
@@ -75,19 +77,29 @@
 			padding-left: 0.8rem;
 			margin-top: 0.7rem;
 			display: block;
-			color: $color-grey-dark-2;
+			color: #333;
 			transition: all 0.3s;
 			text-align: left;
+			transform: translateY(-5.5rem);
 		}
 
-		&__input:placeholder-shown + .form__label {
-			opacity: 0;
-			visibility: hidden;
-			transform: translateY(-3rem);
-		}
+		// &__input:placeholder-shown + .form__label {
+		// 	opacity: 0;
+		// 	visibility: hidden;
+		// 	transform: translateY(-3rem);
+		// }
 
 		&__buttons {
 			@include account-button;
 		}
 	}
+}
+
+.form__input:placeholder-shown + .form__label {
+	@include placeholder-show;
+}
+
+.form__input:not(:placeholder-shown) + .form__label,
+.form__input:focus:not(:placeholder-shown) + .form__label {
+	@include placeholder-not-show;
 }
