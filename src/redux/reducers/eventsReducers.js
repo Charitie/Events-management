@@ -8,6 +8,8 @@ import {
 	EVENT_DELETED,
 	MY_EVENTS_FETCHED,
 	MY_EVENTS_FETCHED_FAILED,
+	CREATE_RSVP,
+	DELETE_RSVP,
 } from "../actions/types";
 
 const initialState = {
@@ -54,6 +56,21 @@ export function eventsReducer(state = initialState, action) {
 			return {
 				...state,
 				myEvents: state.myEvents.filter((event) => event.id !== payload),
+				loading: false,
+			};
+		case CREATE_RSVP:
+			console.log("GUEST", action.payload);
+			return {
+				...state,
+				events: state.events.map((event) =>
+					event.id === payload.id ? { ...event, ...payload.event } : event
+				),
+				loading: false,
+			};
+		case DELETE_RSVP:
+			return {
+				...state,
+				events: state.events.filter((event) => event.id !== payload),
 				loading: false,
 			};
 		case EVENT_CREATED_FAILED:

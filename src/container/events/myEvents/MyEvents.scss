@@ -18,6 +18,10 @@
 		justify-content: space-between;
 		align-items: center;
 		padding-right: 2rem;
+
+		&--delete {
+			padding-top: 2rem;
+		}
 	}
 
 	&__title {
@@ -32,4 +36,30 @@
 			fill: #c90000;
 		}
 	}
+
+	&--delete {
+		padding: 16;
+		color: white;
+		height: 200px;
+	}
+
+	.control-buttons {
+		width: 80%;
+		display: flex;
+    justify-content: space-around;
+
+	}
+}
+
+.btn {
+	  
+  &--cancel {
+    background-color: #a18a46;
+
+  }
+
+  &--delete {
+    background-color: #c90000;
+
+  }
 }

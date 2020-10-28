@@ -1,5 +1,6 @@
 import React from "react";
-import loader  from "../../images/loader.gif";
+import loader from "../../images/loader.gif";
+import ControlButtons from "../ControlButtons";
 
 const EventCard = ({
 	events,
@@ -9,13 +10,11 @@ const EventCard = ({
 	showRsvpButton,
 	loading,
 }) => {
-	console.log('loading',loading);
 	return (
 		<div className='events'>
 			{loading ? (
-				<img  src={loader} alt='loader'  />
+				<img src={loader} alt='loader' />
 			) : (
-				events.length > 0 &&
 				events.map((event) => {
 					return (
 						<div key={event.id} className='event'>
@@ -47,26 +46,13 @@ const EventCard = ({
 										{event.description}
 									</li>
 								</ul>
-
-								<div className={` ${showButtons} content__control-buttons`}>
-									<span className='content__control-button content__control-button--guest'>
-										Guest
-									</span>
-									<span
-										onClick={() => toggleEditModal(event)}
-										className='content__control-button content__control-button--edit'>
-										Edit
-									</span>
-									<span
-										onClick={() => toggleDeleteModal(event.id)}
-										className='content__control-button content__control-button--delete'>
-										Delete
-									</span>
-								</div>
-								<button
-									className={`${showRsvpButton} content__control-button content__control-button--rsvp`}>
-									RSVP
-								</button>
+								<ControlButtons
+									toggleDeleteModal={toggleDeleteModal}
+									toggleEditModal={toggleEditModal}
+									event={event}
+									showButtons={showButtons}
+									showRsvpButton={showRsvpButton}
+								/>
 							</div>
 						</div>
 					);

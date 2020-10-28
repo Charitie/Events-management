@@ -7,13 +7,13 @@ import {
 	SIGNUP_FAILED,
 	LOGOUT,
 	SET_AUTH_SUCCESS,
-	SET_AUTH_FAILED
+	SET_AUTH_FAILED,
 } from "../actions/types";
 
 const initialState = {
-	token: localStorage.getItem('fancyeventsJWT'),
+	token: localStorage.getItem("fancyeventsJWT"),
 	isAuthenticated: false,
-	user: null,
+	user: JSON.parse(localStorage.getItem("fancyeventsUser")),
 	error: null,
 	loading: false,
 };
@@ -25,10 +25,17 @@ export function authReducer(state = initialState, action) {
 			return { ...state, loading: true };
 		case LOGIN_SUCCESS:
 		case SIGNUP_SUCCESS:
+			localStorage.setItem(
+				"fancyeventsUser",
+				JSON.stringify({
+					id: action.payload.id,
+				})
+			);
 			return {
 				...state,
 				loading: false,
-				user: action.payload,
+				user: { id: action.payload.id },
+				token: action.payload.token,
 				error: null,
 				isAuthenticated: true,
 			};
@@ -43,7 +50,7 @@ export function authReducer(state = initialState, action) {
 				isAuthenticated: false,
 				loading: false,
 				error: action.payload,
-				token: null
+				token: null,
 			};
 		default:
 			return state;

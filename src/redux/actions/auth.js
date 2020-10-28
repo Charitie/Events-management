@@ -21,11 +21,11 @@ export const setAuthFailed = () => {
 
 export const setAuth = () => async (dispatch) => {
 	try {
-		dispatch(setAuthSuccess())
+		dispatch(setAuthSuccess());
 	} catch (error) {
-		dispatch(setAuthFailed())
+		dispatch(setAuthFailed());
 	}
-}
+};
 
 export const userLoginRequest = () => {
 	return { type: LOGIN_REQUEST };
@@ -48,7 +48,9 @@ export const loginAsync = (user) => {
 		try {
 			const response = await axiosInstance.post("/login", user);
 
-			localStorage.setItem("fancyeventsJWT", response.data.token);
+			const token = response.data.token;
+	
+			localStorage.setItem("fancyeventsJWT", token);
 			dispatch(userLoginSuccess(response.data));
 		} catch (error) {
 			localStorage.removeItem("fancyeventsJWT");
@@ -57,7 +59,7 @@ export const loginAsync = (user) => {
 	};
 };
 
-//Logout  /Clear Profile
+//Logout
 export const userLoggedOut = () => ({
 	type: LOGOUT,
 });

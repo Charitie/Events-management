@@ -69,41 +69,5 @@
 			color: #c2a857;
 		}
 	}
-
-	.btn {
-			text-transform: uppercase;
-			text-decoration: none;
-			padding: .8rem 4rem;
-			display: inline-block;
-			border-radius: 3px;
-			transition: all 0.2s;
-			font-weight: bold;
-			transition: all 0.5s;
-			font-size: 1.2rem;
-			border: none;
-			margin-top: 1rem;
-
-		&:focus {
-			outline: none;
-		}
-	
-		&:hover {
-			transform: translateY(-0.3rem);
-			// box-shadow: 1px 0 12px #d4af37;
-			// background-color: grey;
-			color: #fff;
-		}
-	
-		&:active {
-			transform: translateY(-0.1rem);
-			box-shadow: 0 0 1px #d4af37;
-			color: var(--color-grey);
-		}
-	
-		&--rsvp {
-			background-color: #c2a857;
-			color: #333;
-			// border: none;
-		}
-	}
 }
+

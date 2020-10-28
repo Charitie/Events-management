@@ -1,13 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Backdrop from "../../../components/backdrop/Backdrop";
 import { ReactComponent as CancelButton } from "../../../images/cancel-circle.svg";
-import { useDispatch, useSelector } from "react-redux";
-import {
-	editMyEvent,
-	fetchMyEvents,
-} from "../../../redux/actions/eventsActions";
 import EventForm from "../../../components/eventForm/EventForm";
-import { openModal } from "../../../redux/actions/modalAction";
 
 const EditEventModal = ({
 	closeModal,

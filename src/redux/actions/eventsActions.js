@@ -1,6 +1,8 @@
 import { axiosInstance } from "../../utils/axiosInstance";
 import { closeModal } from "./modalAction";
 import {
+	CREATE_RSVP,
+	DELETE_RSVP,
 	EDIT_EVENT_FAILED,
 	EDIT_EVENT_SUCCESS,
 	EVENTS_FETCHED,
@@ -68,7 +70,6 @@ export const fetchMyEvents = () => async (dispatch) => {
 	try {
 		const response = await axiosInstance.get("/my-events");
 		dispatch(myEventsFetched(response.data.events));
-		// console.log("my events res", response.data.events);
 	} catch (error) {
 		dispatch(fetchMyEventsFailed(error.response.data));
 	}
@@ -107,6 +108,40 @@ export const deleteEvent = (id) => async (dispatch) => {
 
 		dispatch(eventDeleted(id));
 		dispatch(closeModal());
+	} catch (error) {
+		console.log(error);
+	}
+};
+
+//RSVP
+export const createRsvp = (event) => {
+	return {
+		type: CREATE_RSVP,
+		payload: event,
+	};
+};
+
+export const rsvp = (eventId) => async (dispatch) => {
+	try {
+		const response = await axiosInstance.post(`/events/${eventId}/rsvp`, eventId);
+		console.log('rsvp ',response.data);
+		dispatch(createRsvp(response.data));
+	} catch (error) {
+		console.log(error);
+	}
+};
+
+export const deleteRsvp = (event) => {
+	return {
+		type: DELETE_RSVP,
+		payload: event,
+	};
+};
+
+export const cancelRsvp = (eventId) => async (dispatch) => {
+	try {
+	 await axiosInstance.put(`/events/${eventId}/rsvps/cancel`);
+		dispatch(deleteRsvp());
 	} catch (error) {
 		console.log(error);
 	}

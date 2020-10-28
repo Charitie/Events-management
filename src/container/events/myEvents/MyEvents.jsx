@@ -8,7 +8,6 @@ import {
 	deleteEvent,
 	fetchMyEvents,
 } from "../../../redux/actions/eventsActions";
-import EventForm from "../../../components/eventForm/EventForm";
 import EventCard from "../../../components/eventCard/EventCard";
 import {
 	closeModal,
@@ -76,13 +75,15 @@ const MyEvents = () => {
 	return (
 		<>
 			<div className='main-content'>
-				<EventCard
-					showRsvpButton='content__hide-rsvp-btn'
-					events={myEvents}
-					loading={loading}
-					toggleEditModal={toggleEditModal}
-					toggleDeleteModal={toggleDeleteModal}
-				/>
+				{myEvents.length > 0 && (
+					<EventCard
+						showRsvpButton='content__hide-rsvp-btn'
+						events={myEvents}
+						loading={loading}
+						toggleEditModal={toggleEditModal}
+						toggleDeleteModal={toggleDeleteModal}
+					/>
+				)}
 
 				{openEdit ? (
 					<EditEventModal

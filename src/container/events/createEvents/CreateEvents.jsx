@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import "react-datepicker/dist/react-datepicker.css";
 import "./CreateEvents.scss";
@@ -17,10 +17,10 @@ const CreateEvents = (props) => {
 	});
 	const [date, setDate] = useState(new Date());
 	const [time, setTime] = useState(new Date());
-	// const events = useSelector((state) => state.events);
-	// const { loading, error, event } = events;
+	const events = useSelector((state) => state.events);
+	const { loading, error, event } = events;
 	const dispatch = useDispatch();
-
+console.log('create',event)
 	const { name, category, location, description } = formData;
 
 	const handleChange = (e) => {
@@ -52,7 +52,6 @@ const CreateEvents = (props) => {
 	// if (!error) {
 	// 	props.history.push("/events/my-events");
 	// }
-
 
 	return (
 		<div className='container'>
