@@ -1,17 +1,20 @@
 import { axiosInstance } from "../../utils/axiosInstance";
 import { closeModal } from "./modalAction";
 import {
-	CREATE_RSVP,
-	DELETE_RSVP,
+	CANCEL_RSVP_FAILED,
+	CANCEL_RSVP_SUCCESS,
 	EDIT_EVENT_FAILED,
 	EDIT_EVENT_SUCCESS,
 	EVENTS_FETCHED,
 	EVENTS_FETCHED_FAILED,
 	EVENT_CREATED_FAILED,
 	EVENT_CREATED_SUCCESS,
-	EVENT_DELETED,
+	EVENT_DELETED_FAILED,
+	EVENT_DELETED_SUCCESS,
 	MY_EVENTS_FETCHED,
 	MY_EVENTS_FETCHED_FAILED,
+	RSVP_FAILED,
+	RSVP_SUCCESS,
 } from "./types";
 
 //create an event
@@ -91,58 +94,77 @@ export const editMyEvent = (id, event) => async (dispatch) => {
 		dispatch(editMyEventSuccess(response.data.event));
 		dispatch(closeModal());
 	} catch (error) {
-		console.log(error);
-		dispatch(editMyEventFailed(error.response));
+		dispatch(editMyEventFailed(error.response.data));
 	}
 };
 
 //delete my event
-export const eventDeleted = (id) => ({
-	type: EVENT_DELETED,
+export const eventDeletedSuccess = (id) => ({
+	type: EVENT_DELETED_SUCCESS,
 	payload: id,
 });
+
+export const eventDeletedFailed = (error) => {
+	return {
+		type: EVENT_DELETED_FAILED,
+		payload: error,
+	};
+};
 
 export const deleteEvent = (id) => async (dispatch) => {
 	try {
 		await axiosInstance.delete(`/events/${id}`);
 
-		dispatch(eventDeleted(id));
+		dispatch(eventDeletedSuccess(id));
 		dispatch(closeModal());
 	} catch (error) {
-		console.log(error);
+		dispatch(eventDeletedFailed(error.response.data));
 	}
 };
 
 //RSVP
-export const createRsvp = (event) => {
+export const rsvpSuccess = (event) => {
 	return {
-		type: CREATE_RSVP,
+		type: RSVP_SUCCESS,
 		payload: event,
 	};
 };
 
-export const rsvp = (eventId) => async (dispatch) => {
+export const rsvpFailed = (error) => {
+	return {
+		type: RSVP_FAILED,
+		payload: error,
+	};
+};
+
+export const rsvp = (eventId, userId) => async (dispatch) => {
 	try {
-		const response = await axiosInstance.post(`/events/${eventId}/rsvp`, eventId);
-		console.log('rsvp ',response.data);
-		dispatch(createRsvp(response.data));
+		const response = await axiosInstance.post(`/events/${eventId}/rsvp`);
+		dispatch(rsvpSuccess({ eventId, userId }));
 	} catch (error) {
-		console.log(error);
+		dispatch(rsvpFailed(error.response.data));
 	}
 };
 
-export const deleteRsvp = (event) => {
+export const cancelRsvpSuccess = (event) => {
 	return {
-		type: DELETE_RSVP,
+		type: CANCEL_RSVP_SUCCESS,
 		payload: event,
 	};
 };
 
-export const cancelRsvp = (eventId) => async (dispatch) => {
+export const cancelRsvpFailed = (error) => {
+	return {
+		type: CANCEL_RSVP_FAILED,
+		payload: error,
+	};
+};
+
+export const cancelRsvp = (eventId, userId) => async (dispatch) => {
 	try {
-	 await axiosInstance.put(`/events/${eventId}/rsvps/cancel`);
-		dispatch(deleteRsvp());
+		await axiosInstance.put(`/events/${eventId}/rsvps/cancel`);
+		dispatch(cancelRsvpSuccess({ eventId, userId }));
 	} catch (error) {
-		console.log(error);
+		dispatch(cancelRsvpFailed(error.response.data));
 	}
 };

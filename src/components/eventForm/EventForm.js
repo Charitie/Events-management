@@ -14,7 +14,6 @@ const EventForm = ({
 	buttonText,
 	buttonClassName,
 }) => {
-	// console.log('forma data', category)
 	const MyContainer = ({ className, children }) => {
 		return (
 			<CalendarContainer className={className}>
@@ -36,7 +35,7 @@ const EventForm = ({
 					id='name'
 					value={name}
 					onChange={handleChange}
-					// placeholder='Event name'
+					required
 				/>
 			</div>
 
@@ -51,8 +50,7 @@ const EventForm = ({
 					id='category'
 					value={category}
 					onChange={handleChange}
-
-					// placeholder='Event category'
+					required
 				/>
 			</div>
 			<div className='form-group'>
@@ -66,8 +64,7 @@ const EventForm = ({
 					id='location'
 					value={location}
 					onChange={handleChange}
-
-					// placeholder='Event location'
+					required
 				/>
 			</div>
 			<div className='form-group'>
@@ -80,6 +77,7 @@ const EventForm = ({
 					id='description'
 					value={description}
 					onChange={handleChange}
+					required
 				/>
 			</div>
 			<div className='form-group'>
@@ -98,6 +96,7 @@ const EventForm = ({
 					calendarContainer={MyContainer}
 					selected={date}
 					onChange={handleDateChange}
+					required
 				/>
 			</div>
 			<div className='form-group'>
@@ -114,18 +113,15 @@ const EventForm = ({
 					isClearable
 					selected={time}
 					onChange={handleTimeChange}
+					required
 				/>
 			</div>
 
-			<button
-				type='submit'
-				className={`btn ${buttonClassName}`}>
+			<button type='submit' className={`btn ${buttonClassName}`}>
 				{buttonText}
 			</button>
 		</form>
 	);
 };
-
-// EventForm.propTypes = {};
 
 export default EventForm;

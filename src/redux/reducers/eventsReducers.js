@@ -5,11 +5,14 @@ import {
 	EVENTS_FETCHED_FAILED,
 	EVENT_CREATED_FAILED,
 	EVENT_CREATED_SUCCESS,
-	EVENT_DELETED,
 	MY_EVENTS_FETCHED,
 	MY_EVENTS_FETCHED_FAILED,
-	CREATE_RSVP,
-	DELETE_RSVP,
+	RSVP_SUCCESS,
+	CANCEL_RSVP_SUCCESS,
+	CANCEL_RSVP_FAILED,
+	RSVP_FAILED,
+	EVENT_DELETED_FAILED,
+	EVENT_DELETED_SUCCESS,
 } from "../actions/types";
 
 const initialState = {
@@ -52,31 +55,44 @@ export function eventsReducer(state = initialState, action) {
 				),
 				loading: false,
 			};
-		case EVENT_DELETED:
+		case EVENT_DELETED_SUCCESS:
 			return {
 				...state,
 				myEvents: state.myEvents.filter((event) => event.id !== payload),
 				loading: false,
 			};
-		case CREATE_RSVP:
-			console.log("GUEST", action.payload);
+		case RSVP_SUCCESS:
 			return {
 				...state,
-				events: state.events.map((event) =>
-					event.id === payload.id ? { ...event, ...payload.event } : event
-				),
+				events: state.events.map((event) => {
+					if (event.id === payload.eventId) {
+						event.guests.push(payload.userId);
+						return event;
+					}
+					return event;
+				}),
 				loading: false,
 			};
-		case DELETE_RSVP:
+		case CANCEL_RSVP_SUCCESS:
 			return {
 				...state,
-				events: state.events.filter((event) => event.id !== payload),
+				events: state.events.map((event) => {
+					if (event.id === payload.eventId) {
+						const index = event.guests.indexOf(payload.userId);
+						event.guests.splice(index, 1);
+						return event;
+					}
+					return event;
+				}),
 				loading: false,
 			};
 		case EVENT_CREATED_FAILED:
 		case EVENTS_FETCHED_FAILED:
 		case MY_EVENTS_FETCHED_FAILED:
 		case EDIT_EVENT_FAILED:
+		case EVENT_DELETED_FAILED:
+		case CANCEL_RSVP_FAILED:
+		case RSVP_FAILED:
 			return { ...state, loading: false, error: payload };
 		default:
 			return state;

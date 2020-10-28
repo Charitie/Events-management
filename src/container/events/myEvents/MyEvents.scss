@@ -46,20 +46,42 @@
 	.control-buttons {
 		width: 80%;
 		display: flex;
-    justify-content: space-around;
-
+		justify-content: space-around;
 	}
 }
 
 .btn {
-	  
-  &--cancel {
-    background-color: #a18a46;
+	&--cancel {
+		background-color: #a18a46;
+	}
 
-  }
+	&--delete {
+		background-color: #c90000;
+	}
+}
 
-  &--delete {
-    background-color: #c90000;
+.guest-modal {
+	position: absolute;
+	background-color: white;
+	opacity: 0.9;
+	top: 0;
+	padding: 2rem 1rem;
+	border-left: 5px solid $color-primary;
+	z-index: 20;
+	width: 20vw;
+	border-radius: 3px;
 
-  }
+	.header-section {
+		display: flex;
+		justify-content: space-between;
+	}
+
+	.guest-list {
+		list-style-type: upper-roman;
+		li {
+			display: flex;
+			flex-direction: column;
+			padding-top: 1rem;
+		}
+	}
 }

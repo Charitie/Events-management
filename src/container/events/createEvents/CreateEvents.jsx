@@ -20,7 +20,9 @@ const CreateEvents = (props) => {
 	const events = useSelector((state) => state.events);
 	const { loading, error, event } = events;
 	const dispatch = useDispatch();
-console.log('create',event)
+
+	console.log('create', event.message)
+	
 	const { name, category, location, description } = formData;
 
 	const handleChange = (e) => {
@@ -49,9 +51,9 @@ console.log('create',event)
 		dispatch(createEvent(eventDetails));
 	};
 
-	// if (!error) {
-	// 	props.history.push("/events/my-events");
-	// }
+	if (event.message !== undefined) {
+		props.history.push("/events/my-events");
+	}
 
 	return (
 		<div className='container'>

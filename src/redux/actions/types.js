@@ -30,8 +30,10 @@ export const MY_EVENTS_FETCHED_FAILED = 'MY_EVENTS_FETCHED_FAILED';
 
 export const EVENT_DELETED = 'EVENT_DELETED';
 
-export const CREATE_RSVP = 'CREATE_RSVP';
-export const DELETE_RSVP = 'DELETE_RSVP';
+export const RSVP_SUCCESS = 'RSVP_SUCCESS';
+export const RSVP_FAILED = 'RSVP_FAILED';
+export const CANCEL_RSVP_SUCCESS = 'CANCEL_RSVP_SUCCESS';
+export const CANCEL_RSVP_FAILED = 'CANCEL_RSVP_FAILED';
 
 //set Authentication
 export const SET_AUTH_SUCCESS = 'SET_AUTH_SUCCESS';

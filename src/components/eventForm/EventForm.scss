@@ -47,6 +47,10 @@
 			&:focus {
 				@include focus;
 			}
+
+			&:focus:invalid {
+				border-bottom: 3px solid orangered;
+			}
 		}
 
 		&__date-picker {

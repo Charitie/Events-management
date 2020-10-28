@@ -2,26 +2,26 @@
 
 .section-signup {
 	background-color: #333;
-	height: 100vh;
+	height: 91.2vh;
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	padding-top: 5rem;
+	// padding-top: 5rem;
 }
 // Gold (metallic) / #d4af37
 .signup {
 	min-height: 50%;
 	width: 65%;
 	background-image: linear-gradient(
-			90deg,
-			transparent 35%,
-			rgba(194, 167, 87, 0.8) 35%,
-			rgba(212, 175, 55, 0.7) 100%
-		),
+			105deg,
+			rgba(194, 167, 87, 0.8) 0%,
+			rgba(212, 175, 55, 0.7) 60%,
+			transparent 60%
+			),
 		url("../../images/event8.jpeg");
 	background-size: cover;
 	background-position: center;
-	box-shadow: 0 0 2rem rgba(#000, 0.9);
+	box-shadow: 0 1rem 1rem rgba(#000, 0.9);
 
 	&__form-container {
 		text-align: center;
@@ -31,7 +31,7 @@
 
 	.form {
 		margin-left: auto;
-		margin-right: -30rem;
+		// margin-right: -30rem;
 
 		&-error {
 			color: red;

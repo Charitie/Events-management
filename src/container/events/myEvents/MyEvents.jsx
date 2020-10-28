@@ -71,7 +71,6 @@ const MyEvents = () => {
 		setEventId(id);
 		dispatch(openDeleteModal());
 	};
-
 	return (
 		<>
 			<div className='main-content'>

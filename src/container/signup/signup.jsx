@@ -14,9 +14,11 @@ export function Signup(props) {
     event.preventDefault();
     signup({name, email, password, phoneNumber: phone });
   };
+
   if (isAuthenticated) {
-    return <Redirect to="/events" />;
+    return <Redirect to="/login" />;
   }
+
   return (
     <section className="section-signup">
       <div className="signup">

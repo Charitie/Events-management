@@ -9,7 +9,8 @@
 
 	.event {
 		background-color: #fffdf5;
-		// border: 1px solid #c2a857;
+		position: relative;
+
 		border-radius: 3px;
 		box-shadow: 0 0 0.5rem rgba(51, 51, 51, 0.4);
 
@@ -46,7 +47,7 @@
 				margin-right: 1rem;
 				padding: 0.5rem 1rem;
 				width: 7vw;
-				transition: all .5s;
+				transition: all 0.5s;
 				text-transform: uppercase;
 
 				&--guest {
@@ -76,9 +77,9 @@
 						color: #fff;
 					}
 				}
-				&--rsvp{
+				&--rsvp {
 					margin-top: 1.5rem;
-					padding: .8rem 2rem;
+					padding: 0.8rem 2rem;
 					width: 10vw;
 					background-color: $color-primary;
 					border: none;
@@ -91,6 +92,9 @@
 						background-color: #575550;
 						color: $color-primary;
 					}
+				}
+				&--host {
+					background-color: transparent;
 				}
 			}
 			ul {
